@@ -17,3 +17,11 @@ body {
 img {
   width: 200px;
 }
+
+.wrapper {
+  width: 425px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
