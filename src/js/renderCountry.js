@@ -6,7 +6,6 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import { alert } from '@pnotify/core';
 
-
 const debounce = require('lodash.debounce');
 
 const refs = {
@@ -17,7 +16,12 @@ const refs = {
 refs.textInput.addEventListener('input', debounce(findCountry, 500));
 
 function findCountry() {
-  fetchQuery(refs.textInput.value).then(renderCountry).catch(console.error());
+  if (refs.textInput.value !== '') {
+    fetchQuery(refs.textInput.value).then(renderCountry).catch(console.error());
+  }
+  else {
+    refs.country.innerHTML = '';
+  }
 }
 
 function renderCountry(country) {
